@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# CRUD-APS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de CRUD (Create, Read, Update, Delete) desenvolvido com React, Node.js, Express e MySQL. Ele foi configurado para ser facilmente executado usando Docker, proporcionando um ambiente de desenvolvimento isolado e fácil de configurar.
 
-## Available Scripts
+## Tecnologias usadas
 
-In the project directory, you can run:
+- **Frontend**: React, TypeScript
+- **Backend**: Node.js, Express
+- **Banco de dados**: MySQL
+- **Docker**: Para orquestrar o ambiente de desenvolvimento (containers)
+  
+## Requisitos
 
-### `npm start`
+Antes de rodar o projeto, você precisará ter o seguinte instalado em sua máquina:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Como rodar o projeto localmente
 
-### `npm test`
+### 1. Clone este repositório
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone este repositório para sua máquina local:
+```bash
+git clone <url_do_repositório>
+cd <diretório_do_projeto>
+```
+## 2. Monte o projeto usando Docker Compose
 
-### `npm run build`
+Rode esse código no seu terminal quando já estiver na pasta root/raíz do projeto.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+docker-compose up --build
+```
+## 3. Parar o projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Se quiser parar os serviços do projeto, basta utilizar o seguinte comando no terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+docker-compose down
+```
