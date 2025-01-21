@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Backend Service (Express + Node)
+  backend:
+    build:
+      context: ./backend
+
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: db_aps2904
+      MYSQL_DB: db_aps
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  # Frontend Service (React + TypeScript)
+  frontend:
+    build:
+      context: ./
+      dockerfile: ./src/Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  # MySQL Service
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: dvd
+      MYSQL_DATABASE: db_aps
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: db_aps2904
+    ports:
+    - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
